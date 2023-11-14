@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-milvus",
-  "description": "向量数据库\u0016milvus服务",
+  "description": "向量数据库 milvus 服务",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -8,7 +8,23 @@
     "lib",
     "dist"
   ],
-  "license": "MIT",
+  "author": {
+    "name": "maxoyed",
+    "email": "maxoyed@gmail.com",
+    "url": "https://github.com/maxoyed"
+  },
+  "contributors": [
+    "maxoyed <maxoyed@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxoyed/koishi-plugin-milvus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxoyed/koishi-plugin-milvus/issues"
+  },
+  "homepage": "https://github.com/maxoyed/koishi-plugin-milvus#readme",
+  "license": "Apache-2.0",
   "scripts": {},
   "keywords": [
     "chatbot",
@@ -17,5 +33,21 @@
   ],
   "peerDependencies": {
     "koishi": "^4.15.5"
+  },
+  "dependencies": {
+    "@zilliz/milvus2-sdk-node": "^2.3.3"
+  },
+  "koishi": {
+    "description": {
+      "zh": "向量数据库 milvus 服务"
+    },
+    "service": {
+      "implements": [
+        "milvus"
+      ]
+    },
+    "locales": [
+      "zh"
+    ]
   }
 }
