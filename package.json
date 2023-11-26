@@ -32,10 +32,10 @@
     "plugin"
   ],
   "peerDependencies": {
-    "koishi": "^4.15.5"
+    "koishi": "^4.15.6"
   },
   "dependencies": {
-    "@zilliz/milvus2-sdk-node": "^2.3.3"
+    "@zilliz/milvus2-sdk-node": "^2.3.4"
   },
   "koishi": {
     "description": {
