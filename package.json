@@ -14,7 +14,8 @@
     "url": "https://github.com/maxoyed"
   },
   "contributors": [
-    "maxoyed <maxoyed@gmail.com>"
+    "maxoyed <maxoyed@gmail.com>",
+    "SunnyPai <sunnypai@luckydog.moe>"
   ],
   "repository": {
     "type": "git",
@@ -29,7 +30,8 @@
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "database"
   ],
   "peerDependencies": {
     "koishi": "^4.15.6"

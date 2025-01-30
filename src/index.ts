@@ -1,25 +1,44 @@
-import { Context, Schema } from "koishi";
-import { MilvusService } from "./service";
+import { Context, Schema, Service } from "koishi";
+import { MilvusClient } from "@zilliz/milvus2-sdk-node";
 
-export const name = "milvus";
 
-export interface Config {
-  host: string;
-  port: number;
-  username: string;
-  password: string;
+declare module "koishi" {
+  interface Context {
+    milvus: MilvusService;
+  }
 }
 
-export const Config: Schema<Config> = Schema.object({
-  host: Schema.string()
-    .default("127.0.0.1")
-    .required()
-    .description("IP地址/域名"),
-  port: Schema.number().default(19530).required().description("端口"),
-  username: Schema.string().required().description("用户名"),
-  password: Schema.string().required().description("密码"),
-}).description("Milvus 配置");
 
-export function apply(ctx: Context, config: Config) {
-  ctx.plugin(MilvusService, config);
+class MilvusService extends Service {
+  
+  public client: MilvusClient;
+  constructor(public ctx: Context,public config: MilvusService.Config) {
+    super(ctx, "milvus");
+    this.client = new MilvusClient({
+      address: `${config.host}:${config.port}`,
+      username: config.username,
+      password: config.password,
+    });
+    ctx.on("dispose", async ()=> {
+      await this.client.closeConnection();
+    });
+  }
 }
+
+namespace MilvusService {
+  export interface Config {
+    host: string;
+    port: number;
+    username?: string;
+    password?: string;
+  };
+  export const Config: Schema<Config> = Schema.object({
+    host: Schema.string().default("localhost").description("IP地址/域名"),
+    port: Schema.number().min(1).max(65535).default(19530).description("端口"),
+    username: Schema.string().description("用户名"),
+    password: Schema.string().role('secret').description("密码"),
+  }).description("Milvus 配置");
+  
+}
+
+export default MilvusService;

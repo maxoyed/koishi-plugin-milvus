@@ -6,36 +6,11 @@
 
 ## 配置项
 
-- `host`: IP 地址/域名, 默认 127.0.0.1
+- `host`: IP 地址/域名, 默认 localhost
 - `port`: 端口, 默认 19530
-- `username`: 用户名
-- `password`: 密码
+- `username?`: 用户名
+- `password?`: 密码
 
-## 接口
-
-### async createCollection(data: CreateColReq | CreateCollectionReq)
-
-创建集合
-
-### async insert(data: InsertReq)
-
-向集合插入数据
-
-### async createIndex(data: CreateIndexReq | CreateIndexSimpleReq)
-
-创建索引
-
-### async loadCollectionSync(data: LoadCollectionReq)
-
-将集合载入内存
-
-### async search(data: SearchReq | SearchSimpleReq)
-
-向量搜索
-
-### async checkHealth()
-
-健康检查
 
 ## 示例
 
@@ -78,4 +53,4 @@ await ctx.milvus.createCollection({
 
 - [Milvus](https://github.com/milvus-io/milvus)
 - [Milvus2-sdk-node](https://github.com/milvus-io/milvus-sdk-node)
-- [Milvus2-sdk-node Official Docs](https://milvus.io/api-reference/node/v2.2.x/About.md)
+- [Milvus2-sdk-node Official Docs](https://milvus.io/api-reference/node/v2.5.x/About.md)
