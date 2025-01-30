@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-milvus",
   "description": "向量数据库 milvus 服务",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
